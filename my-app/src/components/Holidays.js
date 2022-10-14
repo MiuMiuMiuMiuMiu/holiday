@@ -12,10 +12,20 @@ function Holidays() {
           })
     }, []);
 
+    console.log(data)
+
+    const listItems = data.map((holiday) =>
+        <p key={holiday.toString()}>
+            {holiday.date} {holiday.localName}
+        </p>
+);
 
     return (
        <div>
-            <h1>This is the home-page</h1>
+        {data.length > 0 && 
+            listItems
+        }
+            
        </div> 
     )
 }
