@@ -15,7 +15,7 @@ function Holidays() {
     console.log(data)
 
     const listItems = data.map((holiday) =>
-        <p key={holiday.localName.toString()}> {/*Holiday names as id, assuming holiday names are unique*/}
+        <p key={holiday.localName.toString()}> {/*Holiday name as id*/}
             {holiday.date} {holiday.localName}
         </p>
     );
