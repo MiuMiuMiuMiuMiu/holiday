@@ -1,12 +1,14 @@
 import React from 'react';
-import Holidays from '../components/Holidays.js';
-import Countries from '../components/Countries.js';
+//import Holidays from '../components/Holidays.js';
+//import Countries from '../components/Countries.js';
+import SearchBar from '../components/SearchBar.js';
 
 function Home() {
     return (
-        <div>
+        <div class="search-bar">
             {/*< Holidays/>*/}
-            {< Countries/>}
+            {/*< Countries/>*/}
+            {< SearchBar/>}
         </div>
     )
 }
