@@ -1,0 +1,17 @@
+.country-list {
+    margin-top: 5px;
+    border-radius: 5px;
+    height: 200px !important;
+    overflow: auto;
+}
+
+.country-list::-webkit-scrollbar {
+    border-radius: 5px;
+    width: 5px;
+    background-color: gainsboro;
+}
+
+.country-list::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color:cadetblue;
+}

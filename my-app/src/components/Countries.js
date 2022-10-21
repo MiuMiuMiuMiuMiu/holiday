@@ -1,5 +1,7 @@
 import React, { useState , useEffect } from 'react';
 import axios from 'axios';
+import ListGroup from 'react-bootstrap/ListGroup';
+
 
 function Countries() {
 
@@ -15,14 +17,16 @@ function Countries() {
     console.log(data)
 
     const listItems = data.map((country, index) =>
-        <p key={country.name.toString()}> {/*Country name as id*/}
-            {country.countryCode} {country.name}
-        </p>
+        <ListGroup.Item action value={index} key={country.name.toString()}> {/*Country name as id*/}
+            {/*country.countryCode*/} {country.name}
+        </ListGroup.Item>
     );
 
     return (
-       <div>
-            {listItems}
+       <div class="country-list">
+            <ListGroup variant="flush">
+                {listItems}
+            </ListGroup>
        </div> 
     )
 }

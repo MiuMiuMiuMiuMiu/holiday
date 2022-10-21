@@ -1,4 +1,6 @@
 import React from 'react';
+import Countries from '../components/Countries.js';
+
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -13,9 +15,10 @@ function SearchBar() {
         <Container>
             <h1 className="mt-5 mb-5 text-center">Next holiday</h1>
             <Form size="lg">
-                <Row className="align-items-center justify-content-center"> 
+                <Row className="justify-content-center"> 
                     <Col xs={5}>
                         <Form.Control size="lg" type="text" placeholder="Country" />
+                        {< Countries/>}
                     </Col>
                     <Col xs="auto">
                         <Button variant="info" size="lg" type="submit">Show</Button>
