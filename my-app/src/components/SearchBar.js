@@ -8,18 +8,26 @@ import Container from 'react-bootstrap/Container';
 
 function SearchBar() {
 
-    const [active, setActive] = useState(false);
+    const [selected, setSelected] = useState(false);
 
-    console.log("This is the search bar component")
+    function expand() {
+        setSelected(true);
+    }
+
+    function close() {
+        setSelected(false);
+    }
+
+   //console.log("This is the search bar component")
 
     return (
         <Container>
             <h1 className="mt-5 mb-5 text-center">Next holiday</h1>
-            <Form size="lg">
+            <Form size="lg" onFocus={expand} onBlur={close}>
                 <Row className="justify-content-center"> 
                     <Col xs={5}>
-                        <Form.Control onClick={() => setActive(true)} size="lg" type="text" placeholder="Country" />
-                        {active === true &&
+                        <Form.Control size="lg" type="text" placeholder="Country" />
+                        {selected === true &&
                             < Countries/>
                         }
                     </Col>

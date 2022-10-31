@@ -14,7 +14,7 @@ function Countries() {
           })
     }, []);
 
-    console.log(data)
+    //console.log(data)
 
     const listItems = data.map((country, index) =>
         <ListGroup.Item action value={index} key={country.name.toString()}> {/*Country name as id*/}
