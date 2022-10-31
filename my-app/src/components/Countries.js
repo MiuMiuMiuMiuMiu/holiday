@@ -16,14 +16,14 @@ function Countries() {
 
     //console.log(data)
 
-    const listItems = data.map((country, index) =>
-        <ListGroup.Item action value={index} key={country.name.toString()}> {/*Country name as id*/}
+    const listItems = data.map((country) =>
+        <ListGroup.Item type="button" action value={country.countryCode} key={country.name.toString()} onClick={(e) => console.log(e.target.textContent)}> {/*Country name as id*/}
             {/*country.countryCode*/} {country.name}
         </ListGroup.Item>
     );
 
     return (
-       <div class="country-list">
+       <div className="country-list">
             <ListGroup variant="flush">
                 {listItems}
             </ListGroup>

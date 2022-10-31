@@ -23,7 +23,7 @@ function SearchBar() {
     return (
         <Container>
             <h1 className="mt-5 mb-5 text-center">Next holiday</h1>
-            <Form size="lg" onFocus={expand} onBlur={close}>
+            <Form size="lg" onFocus={expand} /*onBlur={close}*/>
                 <Row className="justify-content-center"> 
                     <Col xs={5}>
                         <Form.Control size="lg" type="text" placeholder="Country" />

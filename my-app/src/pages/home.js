@@ -5,7 +5,7 @@ import SearchBar from '../components/SearchBar.js';
 
 function Home() {
     return (
-        <div class="search-bar">
+        <div className="search-bar">
             {/*< Holidays/>*/}
             {/*< Countries/>*/}
             {< SearchBar/>}
