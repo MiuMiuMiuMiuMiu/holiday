@@ -12,11 +12,15 @@ function SearchBar() {
 
     function expand() {
         setSelected(true);
-    }
+    };
 
     function close() {
         setSelected(false);
-    }
+    };
+
+    function clickCountry() {
+        //A function
+    };
 
    //console.log("This is the search bar component")
 
