@@ -1,5 +1,5 @@
 import React, { useState , useEffect } from 'react';
-import SearchBar from '../components/SearchBar.js';
+//import SearchBar from '../components/SearchBar.js';
 import axios from 'axios';
 import ListGroup from 'react-bootstrap/ListGroup';
 
@@ -20,7 +20,6 @@ function Countries() {
 
     function getCountry(e) {
         setCountry(e.target.textContent)
-        //setCountry(e.target.value) //Get country code
     };
 
     const listItems = data.map((country) =>

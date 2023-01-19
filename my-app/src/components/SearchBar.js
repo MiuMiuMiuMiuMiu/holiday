@@ -1,45 +1,44 @@
-import React, {useState} from 'react';
-import Countries from '../components/Countries.js';
+import React, {useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import axios from 'axios';
 
 function SearchBar() {
     
-    const [selected, setSelected] = useState(false);
+    const [country, setCountry] = useState([]);
+    const [data, setData] = useState([]);
 
-    function expand() {
-        setSelected(true);
-    };
+    useEffect(() => {
+        axios.get('https://date.nager.at/api/v3/availableCountries')
+          .then(function (response) {
+            setData(response.data);
+          })
+    }, []);
 
-    function close() {
-        setSelected(false);
-    };
+    console.log(country)
 
-    function clickCountry() {
-        //A function
-    };
-
-   //console.log("This is the search bar component")
+    const listItems = data.map((country) =>
+        <option type="button" value={country.countryCode} key={country.name.toString()} onClick={() => setCountry(country.name)}>  {/*Country name as id*/}
+            {/*country.countryCode*/} {country.name}
+        </option>
+    );
 
     return (
         <Container>
             <h1 className="mt-5 mb-5 text-center">Next holiday</h1>
-            <Form size="lg" onFocus={expand} /*onBlur={close}*/>
-                <Row className="justify-content-center"> 
-                    <Col xs={5}>
-                        <Form.Control size="lg" type="text" placeholder="Country" />
-                        {selected === true &&
-                            < Countries/>
-                        }
-                    </Col>
-                    <Col xs="auto">
-                        <Button variant="info" size="lg" type="submit">Show</Button>
-                    </Col>
-                </Row> 
-            </Form>
+            <Row className="justify-content-center"> 
+                <Col xs={8} md={6} lg={5}>
+                    <Form.Select size="lg">
+                        {listItems}
+                    </Form.Select>
+                </Col>
+                <Col xs={3} md={1} lg={1}>
+                    <Button variant="success" size="lg" type="submit">Show</Button>
+                </Col>
+            </Row> 
         </Container>
     )
 }
