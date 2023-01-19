@@ -1,7 +1,7 @@
 import React, { useState , useEffect } from 'react';
+import SearchBar from '../components/SearchBar.js';
 import axios from 'axios';
 import ListGroup from 'react-bootstrap/ListGroup';
-
 
 function Countries() {
 
