@@ -22,13 +22,16 @@ function SearchBar() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        navigate("/country");
-        //console.log("Go to country page")
+        navigate("/country", {
+            state: {
+                countryCode: country
+            }
+        });
     }
 
     const listItems = data.map((country) =>
-        <option type="button" value={country.countryCode} key={country.name.toString()}>  {/*Country name as id*/}
-            {/*country.countryCode*/} {country.name}
+        <option type="button" value={country.countryCode} key={country.name.toString()}>
+            {country.name}
         </option>
     );
 
@@ -36,9 +39,10 @@ function SearchBar() {
         <Container>
             <h1 className="mt-5 mb-5 text-center">Next holiday</h1>
             <Form onSubmit={handleSubmit}>
-                <Row className="justify-content-center" onChange={(e) => setCountry(e.target.value)}> 
+                <Row className="justify-content-center" > 
                     <Col xs={8} md={6} lg={5}>
-                        <Form.Select size="lg">
+                        <Form.Select size="lg" onChange={(e) => setCountry(e.target.value)}>
+                            <option>Select country</option>
                             {listItems}
                         </Form.Select>
                     </Col>

@@ -1,31 +1,12 @@
-import React, { useState , useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 
-function Holidays() {
+function Holidays(countryCode) {
 
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        axios.get('https://date.nager.at/api/v3/NextPublicHolidays/SE')
-          .then(function (response) {
-            setData(response.data);
-          })
-    }, []);
-
-    console.log(data)
-
-    const listItems = data.map((holiday) =>
-        <p key={holiday.localName.toString()}> {/*Holiday name as id*/}
-            {holiday.date} {holiday.localName}
-        </p>
-    );
+    console.log(countryCode.countryCode)
 
     return (
        <div>
-        {data.length > 0 && 
-            listItems
-        }
-            
+        <h1>HELLO</h1>
        </div> 
     )
 }

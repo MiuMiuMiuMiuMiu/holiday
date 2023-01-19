@@ -1,11 +1,18 @@
 import React from 'react';
+import Holidays from '../components/Holidays.js';
+import {useLocation} from 'react-router-dom';
 
-function Home() {
+function Country() {
+
+    const location = useLocation();
+    let code = location.state.countryCode;
     return (
         <div>
-            <h1>Hello</h1>
+            {<Holidays 
+            countryCode={code}
+            />}
         </div>
     )
 }
 
-export default Home;
+export default Country;
