@@ -6,6 +6,7 @@ function Country() {
 
     const location = useLocation();
     let code = location.state.countryCode;
+    
     return (
         <div>
             {<Holidays 

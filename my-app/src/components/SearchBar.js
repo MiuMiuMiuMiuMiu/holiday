@@ -37,7 +37,7 @@ function SearchBar() {
 
     return (
         <Container>
-            <h1 className="mt-5 mb-5 text-center">Next holiday</h1>
+            <h1 className="mt-5 mb-5 text-center">Holidays</h1>
             <Form onSubmit={handleSubmit}>
                 <Row className="justify-content-center" > 
                     <Col xs={8} md={6} lg={5}>
