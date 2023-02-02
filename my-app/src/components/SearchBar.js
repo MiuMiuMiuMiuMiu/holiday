@@ -20,13 +20,20 @@ function SearchBar() {
           })
     }, []);
 
+    /*
+    Handles submit of form.
+    If there is no country code (ie no valid country was selected)
+    prevent from navigating to next page: Country page.
+    */
     function handleSubmit(e) {
         e.preventDefault();
-        navigate("/country", {
-            state: {
-                countryCode: country
-            }
-        });
+        if (country.length > 0) {
+            navigate("/country", {
+                state: {
+                    countryCode: country
+                }
+            });
+        }
     }
 
     const listItems = data.map((country) =>
