@@ -8,7 +8,11 @@ function Holidays(countryCode) {
   let code = countryCode.countryCode;
   //console.log(code)
 
-
+  /* 
+  Checks if today is a holiday.
+  Returns code 200 if true or 204 if false.
+  If true sets todayHoliday to true, else false.
+  */
   useEffect(() => {
     const isTodayHoliday = () => {
       axios.get(`https://date.nager.at/api/v3/IsTodayPublicHoliday/${code}?offset=0`)
@@ -25,6 +29,10 @@ function Holidays(countryCode) {
     isTodayHoliday()
   }, [code]);
 
+  /*
+  Get upcoming holidays in the next 365 days
+  Set response to data.
+  */
   useEffect(() => {
     const getHolidays = () => {
       axios.get(`https://date.nager.at/api/v3/nextPublicHolidays/${code}`)
@@ -36,24 +44,26 @@ function Holidays(countryCode) {
     getHolidays()
   }, [code]);
 
+  /* 
+  Calculates the number of days to a holiday based on today's date
+  Returns the number of days to a holiday
+  */
   const daysToHoliday = (nextHoliday) => {
     const today = new Date();
     const upcomingHoliday = Date.parse(nextHoliday);
-    //const nextHoliday = Date.parse(data[0].date);
-    const diffTime = Math.abs(upcomingHoliday - Date.parse(today.toLocaleDateString()));
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays
+    const differenceInTime = Math.abs(upcomingHoliday - Date.parse(today.toLocaleDateString()));
+    const DifferenceInDays = Math.ceil(differenceInTime / (1000 * 60 * 60 * 24));
+    return DifferenceInDays
   }
-
-  console.log(data)
 
   return (
     <div>
-
+      {/* If today is a holiday*/} 
       {todayHoliday === true
         ?
         <>
           <h1 className="mt-5 mb-5 text-center">Today's Holiday:</h1>
+          {/*And if data is not undefined*/}
           {data &&
             <>
               <h2 className="display-2 text-center">{data[0].name}</h2>
@@ -61,10 +71,10 @@ function Holidays(countryCode) {
               <h3 className="mt-5 display-6 text-center">Next Holiday is {data[1].name} in {daysToHoliday(data[1].date)} days</h3>
             </>
           }
-        </>
-        :
-        data &&
-        <>
+        </> 
+        : 
+        data && 
+        <> {/*If today is not a holiday, present upcoming holiday*/}
           <h1 className="mt-5 mb-5 text-center">Next Holiday:</h1>
           <h2 className="display-2 text-center">
             {data[0].name}
