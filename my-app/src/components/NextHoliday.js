@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import DaysToHoliday from './DaysToHoliday';
 import axios from 'axios';
 
 function NextHoliday(code) {
@@ -23,14 +24,18 @@ function NextHoliday(code) {
 
     return (
         <div>
+            {/*If there is data in data*/}
             {data &&
-                <> {/*If today is not a holiday, present upcoming holiday*/}
-                <h2 className="display-2 text-center">
-                  {data[0].name}
-                </h2>
-              </>
+                <>
+                    <h2 className="display-2 text-center">
+                        {data[0].name}
+                    </h2>
+                    <DaysToHoliday 
+                    date={data[0].date}
+                    /> 
+                </>
             }
-        </div>
+        </div >
     )
 }
 

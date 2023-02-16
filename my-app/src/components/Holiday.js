@@ -33,33 +33,30 @@ function Holiday(countryCode, countryName) {
   Calculates the number of days to a holiday based on today's date
   Returns the number of days to a holiday
   */
-  const daysToHoliday = (nextHoliday) => {
-    const today = new Date();
-    const upcomingHoliday = Date.parse(nextHoliday);
-    const differenceInTime = Math.abs(upcomingHoliday - Date.parse(today.toLocaleDateString()));
-    const DifferenceInDays = Math.ceil(differenceInTime / (1000 * 60 * 60 * 24));
-    return DifferenceInDays
-  }
-
+  
   return (
     <div className="p-5">
-      {/* If today is a holiday*/} 
+      {/* If today is a holiday, present today's holiday*/} 
       {todayHoliday === true
         ?
         <>
-          <h1 className="mt-5 mb-5 text-center">Today's Holiday in {name}:</h1>
+          <h1 className="mt-5 mb-5 text-center">Today's Holiday in {name} is:</h1>
           <NextHoliday
           code={code}
           />
           <h2 className="mt-5 mb-5 text-center">Celebrate 🎉!!!</h2>
         </> 
         : 
-
         <> {/*If today is not a holiday, present upcoming holiday*/}
-          <h1 className="mt-5 mb-5 text-center">Next Holiday in {name}:</h1>
-          <NextHoliday
-          code={code}
-          />
+          <h1 className="mt-5 mb-5 text-center">Next Holiday in {name} is:</h1>
+          
+          <h2 className="display-2 text-center">
+            <NextHoliday
+              code={code}
+            />
+          </h2>
+          
+          
         </>
       }
 
