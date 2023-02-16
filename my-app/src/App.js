@@ -1,5 +1,4 @@
 import Home from "./pages/home";
-import Country from "./pages/country";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
@@ -30,7 +29,6 @@ function App() {
       </ThemeProvider>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/country" element={<Country />} />
       </Routes>
     </BrowserRouter>
   );
