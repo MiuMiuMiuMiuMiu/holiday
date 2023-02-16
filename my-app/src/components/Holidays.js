@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-function Holidays(countryCode) {
+function Holidays(countryCode, countryName) {
 
   const [data, setData] = useState();
   const [todayHoliday, setTodayHoliday] = useState();
   let code = countryCode.countryCode;
-  //console.log(code)
+  let name = countryCode.countryName;
 
   /* 
   Checks if today is a holiday.
@@ -62,7 +62,7 @@ function Holidays(countryCode) {
       {todayHoliday === true
         ?
         <>
-          <h1 className="mt-5 mb-5 text-center">Today's Holiday:</h1>
+          <h1 className="mt-5 mb-5 text-center">Today's Holiday in {name}:</h1>
           {/*And if data is not undefined*/}
           {data &&
             <>
@@ -75,7 +75,7 @@ function Holidays(countryCode) {
         : 
         data && 
         <> {/*If today is not a holiday, present upcoming holiday*/}
-          <h1 className="mt-5 mb-5 text-center">Next Holiday:</h1>
+          <h1 className="mt-5 mb-5 text-center">Next Holiday in {name}:</h1>
           <h2 className="display-2 text-center">
             {data[0].name}
           </h2>

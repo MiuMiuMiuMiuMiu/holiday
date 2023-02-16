@@ -8,8 +8,8 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 function SearchBar() {
-    
-    const [country, setCountry] = useState();
+
+    const [index, setIndex] = useState();
     const [data, setData] = useState([]);
     let navigate = useNavigate(); 
     
@@ -28,18 +28,23 @@ function SearchBar() {
     */
     function handleSubmit(e) {
         e.preventDefault();
-        if (country !== undefined && country !== "select") {
+
+        if (index !== "0" && index !== undefined) {
             navigate("/country", {
                 state: {
-                    countryCode: country
+                    code: e.target[0][index].id, //Country code
+                    name: e.target[0][index].innerHTML //Country name
                 }
             });
         }
     }
 
-    /*Map a list of options with country data*/
-    const listItems = data.map((country) =>
-        <option type="button" value={country.countryCode} key={country.name.toString()}>
+    /*
+    Map a list of options with country data
+    Index + 1 because there is an extra option not mapped here.
+    */
+    const listItems = data.map((country, index) =>
+        <option type="button" value={index + 1} id={country.countryCode} key={country.name.toString()}>
             {country.name}
         </option>
     );
@@ -50,8 +55,8 @@ function SearchBar() {
             <Form onSubmit={handleSubmit}>
                 <Row className="justify-content-center" > 
                     <Col xs={8} md={6} lg={5}>
-                        <Form.Select size="lg" onChange={(e) => setCountry(e.target.value)}>
-                            <option value="select">Select country</option>
+                        <Form.Select size="lg" onChange={(e) => setIndex(e.target.value)}>
+                            <option value="0">Select country</option>
                             {listItems}
                         </Form.Select>
                     </Col>
