@@ -43,7 +43,7 @@ function SearchBar() {
     Map a list of options with country data
     Index + 1 because there is an extra option not mapped here.
     */
-    const listItems = data.map((country, index) =>
+    const options = data.map((country, index) =>
         <option type="button" value={index + 1} id={country.countryCode} key={country.name.toString()}>
             {country.name}
         </option>
@@ -57,7 +57,7 @@ function SearchBar() {
                     <Col xs={8} md={6} lg={5}>
                         <Form.Select size="lg" onChange={(e) => setIndex(e.target.value)}>
                             <option value="0">Select country</option>
-                            {listItems}
+                            {options}
                         </Form.Select>
                     </Col>
                     <Col xs={3} md={1} lg={1}>

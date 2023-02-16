@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import NextHoliday from './NextHoliday';
 import axios from 'axios';
 
-function Holidays(countryCode, countryName) {
+function Holiday(countryCode, countryName) {
 
-  const [data, setData] = useState();
   const [todayHoliday, setTodayHoliday] = useState();
   let code = countryCode.countryCode;
   let name = countryCode.countryName;
@@ -29,21 +29,6 @@ function Holidays(countryCode, countryName) {
     isTodayHoliday()
   }, [code]);
 
-  /*
-  Get upcoming holidays in the next 365 days
-  Set response to data.
-  */
-  useEffect(() => {
-    const getHolidays = () => {
-      axios.get(`https://date.nager.at/api/v3/nextPublicHolidays/${code}`)
-        .then(function (response) {
-          setData(response.data)
-        })
-        .catch(error => console.error(`Error: ${error}`));
-    }
-    getHolidays()
-  }, [code]);
-
   /* 
   Calculates the number of days to a holiday based on today's date
   Returns the number of days to a holiday
@@ -57,34 +42,24 @@ function Holidays(countryCode, countryName) {
   }
 
   return (
-    <div>
+    <div className="p-5">
       {/* If today is a holiday*/} 
       {todayHoliday === true
         ?
         <>
           <h1 className="mt-5 mb-5 text-center">Today's Holiday in {name}:</h1>
-          {/*And if data is not undefined*/}
-          {data &&
-            <>
-              <h2 className="display-2 text-center">{data[0].name}</h2>
-              <h1 className="mt-5 mb-5 text-center">Celebrate!!!</h1>
-              <h3 className="mt-5 display-6 text-center">Next Holiday is {data[1].name} in {daysToHoliday(data[1].date)} days</h3>
-            </>
-          }
+          <NextHoliday
+          code={code}
+          />
+          <h2 className="mt-5 mb-5 text-center">Celebrate 🎉!!!</h2>
         </> 
         : 
-        data && 
+
         <> {/*If today is not a holiday, present upcoming holiday*/}
           <h1 className="mt-5 mb-5 text-center">Next Holiday in {name}:</h1>
-          <h2 className="display-2 text-center">
-            {data[0].name}
-          </h2>
-          <h2 className="text-center mt-3 mb-3">
-            in...
-          </h2>
-          <h2 className="display-2 text-center">
-            {daysToHoliday(data[0].date)} Days
-          </h2>
+          <NextHoliday
+          code={code}
+          />
         </>
       }
 
@@ -92,4 +67,4 @@ function Holidays(countryCode, countryName) {
   )
 }
 
-export default Holidays;
+export default Holiday;

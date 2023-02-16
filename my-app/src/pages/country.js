@@ -1,5 +1,5 @@
 import React from 'react';
-import Holidays from '../components/Holidays.js';
+import Holiday from '../components/Holiday.js';
 import {useLocation} from 'react-router-dom';
 
 function Country() {
@@ -10,7 +10,7 @@ function Country() {
     
     return (
         <div>
-            {<Holidays 
+            {<Holiday 
             countryCode={code}
             countryName={name}
             />}
