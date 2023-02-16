@@ -34,28 +34,29 @@ function Holiday(props) {
     To mount and unmount div everytime time a country is selected, set different key each time.
     This is done so the fade-in animation triggers. 
     */},
-    <div key={Math.random()} className="fade-in"> 
-      {/* If today is a holiday, present today's holiday*/} 
-      {todayHoliday === true
-        ?
-        <>
-          <h1 className="mt-5 mb-5 text-center">YES! Today's Holiday in {countryName} is:</h1>
-          <NextHoliday
-          code={countryCode}
-          />
-          <h2 className="mt-5 mb-5 text-center">Celebrate 🎉!!!</h2>
-        </> 
-        : 
-        <> {/*If today is not a holiday, present upcoming holiday*/}
-          <h1 className="mt-5 mb-5 text-center">Sadly not! Next Holiday in {countryName} is:</h1>
-          <h2 className="display-2 text-center">
+    <div>
+      <div key={Math.random()} className="fade-in"> 
+        {/* If today is a holiday, present today's holiday*/} 
+        {todayHoliday === true
+          ?
+          <>
+            <h1 className="mt-5 mb-5">YES😃! Today's holiday in {countryName} is:</h1>
             <NextHoliday
-              code={countryCode}
+            code={countryCode}
             />
-          </h2>
-        </>
-      }
-
+            <h2 className="mt-5 mb-5">Celebrate 🎉!!!</h2>
+          </> 
+          : 
+          <> {/*If today is not a holiday, present upcoming holiday*/}
+            <h2 className="mt-5 mb-4">NOPE😢! Next holiday in {countryName} is:</h2>
+            <h2 className="display-2">
+              <NextHoliday
+                code={countryCode}
+              />
+            </h2>
+          </>
+        }
+      </div>
     </div>
   )
 }

@@ -27,7 +27,7 @@ function NextHoliday(code) {
             {/*If there is data in data*/}
             {data &&
                 <>
-                    <h2 className="display-2 text-center">
+                    <h2 className="display-4">
                         {data[0].name}
                     </h2>
                     <DaysToHoliday 

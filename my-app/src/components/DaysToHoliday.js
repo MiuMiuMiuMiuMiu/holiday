@@ -22,10 +22,10 @@ function DaysToHoliday(date) {
         <div> {/* If today is not a holiday (ie 0), display amount of days to next holiday */}
             {DifferenceInDays > 0 &&
                 <>
-                <h2 className="text-center mt-3 mb-3">
+                <h2 className="mt-3 mb-3">
                     in...
                 </h2>
-                < h2 className="display-2 text-center">
+                < h2 className="display-4">
                 {DifferenceInDays} Days
                 </h2>
                 </>

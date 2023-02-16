@@ -6,8 +6,7 @@ import Container from 'react-bootstrap/Container';
 import axios from 'axios';
 import Holiday from './Holiday.js';
 
-function SearchBar() {
-
+function CountryOptions() {
     const [data, setData] = useState([]);
     const [countryCode, setCountryCode] = useState();
     const [countryName, setCountryName] = useState();
@@ -32,27 +31,23 @@ function SearchBar() {
 
     return (
         <Container>
-            <h3 className="mt-5 pt-5 mb-5 text-center">Is today a holiday in...</h3>
-            <Form>
-                <Row className="justify-content-center" > 
-                
-                    <Col xs={8} md={6} lg={5}>
+            <h1 className="mb-5">Is today a holiday in...</h1>
+                <Row> 
+                    <Col xs={12} md={12} lg={11}>
                         <Form.Select size="lg" onChange={(e) => {setCountryName(e.target[e.target.value].innerHTML); setCountryCode(e.target[e.target.value].id)}}>
-                            <option value="0">Select country</option>
+                            <option value="0">Select country...</option>
                             {options}
                         </Form.Select>
                     </Col>
                 </Row> 
-            </Form>
             {countryCode &&
             <Holiday
                 code={countryCode}
                 name={countryName}
                 />
-            }
-            
+            }      
         </Container>
     )
 }
 
-export default SearchBar;
+export default CountryOptions;
