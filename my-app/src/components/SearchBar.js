@@ -9,10 +9,11 @@ import axios from 'axios';
 
 function SearchBar() {
     
-    const [country, setCountry] = useState([]);
+    const [country, setCountry] = useState();
     const [data, setData] = useState([]);
     let navigate = useNavigate(); 
-
+    
+    /*Get available countries of API*/
     useEffect(() => {
         axios.get('https://date.nager.at/api/v3/availableCountries')
           .then(function (response) {
@@ -27,7 +28,7 @@ function SearchBar() {
     */
     function handleSubmit(e) {
         e.preventDefault();
-        if (country.length > 0) {
+        if (country !== undefined && country !== "select") {
             navigate("/country", {
                 state: {
                     countryCode: country
@@ -36,6 +37,7 @@ function SearchBar() {
         }
     }
 
+    /*Map a list of options with country data*/
     const listItems = data.map((country) =>
         <option type="button" value={country.countryCode} key={country.name.toString()}>
             {country.name}
@@ -49,7 +51,7 @@ function SearchBar() {
                 <Row className="justify-content-center" > 
                     <Col xs={8} md={6} lg={5}>
                         <Form.Select size="lg" onChange={(e) => setCountry(e.target.value)}>
-                            <option>Select country</option>
+                            <option value="select">Select country</option>
                             {listItems}
                         </Form.Select>
                     </Col>
