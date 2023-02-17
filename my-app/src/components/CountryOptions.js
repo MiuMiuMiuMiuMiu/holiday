@@ -33,7 +33,7 @@ function CountryOptions() {
         <Container className="text-center">
             <h1 className="mb-5">Is today a holiday in...</h1>
                 <Row className="justify-content-center">  
-                    <Col xs={12} md={6} lg={8}>
+                    <Col xs={12} md={8} lg={6}>
                         <Form.Select size="lg" onChange={(e) => {setCountryName(e.target[e.target.value].innerHTML); setCountryCode(e.target[e.target.value].id)}}>
                             <option value="0">Select country...</option>
                             {options}

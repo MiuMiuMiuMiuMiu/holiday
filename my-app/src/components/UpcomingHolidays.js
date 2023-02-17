@@ -13,7 +13,6 @@ function UpcomingHolidays() {
             })
     }, []);
 
-
     const tableItems = data.map((country, index) =>
         <tr key={index}>
             <td>{country.date}</td>
@@ -22,11 +21,9 @@ function UpcomingHolidays() {
         </tr>
     );
 
-    console.log(tableItems)
-
     return (
         <div>
-            <h1 className="mt-5 mt-sm-5 mt-md-0 mb-4" >
+            <h1 className="mt-5 mt-sm-5 mt-md-0 mb-4">
                 Upcoming holidays:
             </h1>
             <Table hover>
