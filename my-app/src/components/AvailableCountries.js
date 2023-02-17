@@ -1,5 +1,8 @@
 import React, {useState, useEffect } from 'react';
 import axios from 'axios';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Accordion from 'react-bootstrap/Accordion';
 
 function AvailableCountries() {
 
@@ -15,15 +18,25 @@ function AvailableCountries() {
     console.log(data);
 
     const countries = data.map((country, index) =>
-        <p key={index}>
+        <Col className="mb-3" key={index}>
             {country.name}
-        </p>
+        </Col>
     );
 
     return (
-        <div>
-            <h1 className="mt-5 mt-sm-5 mt-md-0 mb-4">Available Countries:</h1>
-            {countries}
+        <div> 
+            <Accordion defaultActiveKey="0">
+                <Accordion.Item eventKey="0">
+                <Accordion.Header>
+                    <h3>Available countries</h3>
+                </Accordion.Header>
+                <Accordion.Body>
+                    <Row xs={2} sm={2} md={2} lg={2}>
+                        {countries}
+                    </Row>
+                </Accordion.Body>
+                </Accordion.Item>
+            </Accordion>
         </div>
     )
 }

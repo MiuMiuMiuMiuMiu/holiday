@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
+import Accordion from 'react-bootstrap/Accordion';
 
 function UpcomingHolidays() {
 
@@ -23,21 +24,31 @@ function UpcomingHolidays() {
 
     return (
         <div>
-            <h1 className="mt-5 mt-sm-5 mt-md-0 mb-4">
-                Upcoming holidays:
-            </h1>
-            <Table hover>
-                <thead>
-                    <tr>
-                        <th className="col-2">Date</th>
-                        <th>Name</th>
-                        <th>Country</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {tableItems}
-                </tbody>
-            </Table>
+            <Accordion defaultActiveKey="0">
+                <Accordion.Item eventKey="0">
+                <Accordion.Header>
+                    <h3>Upcoming holidays:</h3>
+                </Accordion.Header>
+                <Accordion.Body>
+                <Table hover>
+                    <thead>
+                        <tr>
+                            <th className="col-2">Date</th>
+                            <th>Name</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {tableItems}
+                    </tbody>
+                </Table>
+
+                </Accordion.Body>
+                </Accordion.Item>
+            </Accordion>
+
+
+            
             
         </div>
     )

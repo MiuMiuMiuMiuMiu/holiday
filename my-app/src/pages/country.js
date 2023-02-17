@@ -8,11 +8,11 @@ import AvailableCountries from '../components/AvailableCountries.js';
 function Country() {
     return (
         <Container className="mt-5">
-            <Row>
-                <Col>
+            <Row className="justify-content-evenly">
+                <Col lg="5">
                     <UpcomingHolidays/>
                 </Col>
-                <Col md>
+                <Col md lg="5">
                     <AvailableCountries/>
                 </Col>
             </Row>
