@@ -1,4 +1,5 @@
 import Home from "./pages/home";
+import Country from "./pages/country";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
@@ -16,11 +17,11 @@ function App() {
         <div className="App">
           <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
-              <Navbar.Brand as={Link} to="/">Holidays</Navbar.Brand>
+              <Navbar.Brand as={Link} to="/">Holiday</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                  <Nav.Link href="#link">Saved</Nav.Link>
+                  <Nav.Link href="/country">Countries</Nav.Link>
                 </Nav>
               </Navbar.Collapse>
             </Container>
@@ -29,6 +30,7 @@ function App() {
       </ThemeProvider>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/country" element={<Country />} />
       </Routes>
     </BrowserRouter>
   );

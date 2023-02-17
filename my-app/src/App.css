@@ -13,7 +13,7 @@
 
 .fade-in {
     position: relative;
-    animation: fadein 0.8s;
+    animation: fadein 1s;
 }
 
 @keyframes fadein {
