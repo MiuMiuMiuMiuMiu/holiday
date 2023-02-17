@@ -15,9 +15,13 @@ function AvailableCountries() {
           })
     }, []);
 
-    console.log(data);
+    //Sort the country alphabetically
+    const alphabeticCountries = data.sort(function(a, b) {
+        return a.name.localeCompare(b.name);
+     });
 
-    const countries = data.map((country, index) =>
+    //Map the countries
+    const countries = alphabeticCountries.map((country, index) =>
         <Col className="mb-3" key={index}>
             {country.name}
         </Col>

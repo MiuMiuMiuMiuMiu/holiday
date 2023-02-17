@@ -24,7 +24,7 @@ function CountryOptions() {
     Index + 1 because there is an extra option not mapped here.
     */
     const options = data.map((country, index) =>
-        <option type="button" value={index+1} id={country.countryCode} key={country.name.toString()}>
+        <option value={index+1} id={country.countryCode} key={country.name.toString()}>
             {country.name}
         </option>
     );

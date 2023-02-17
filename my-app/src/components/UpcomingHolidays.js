@@ -42,7 +42,6 @@ function UpcomingHolidays() {
                         {tableItems}
                     </tbody>
                 </Table>
-
                 </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
