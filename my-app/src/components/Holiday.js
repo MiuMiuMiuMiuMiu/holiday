@@ -37,7 +37,7 @@ function Holiday(props) {
     <div>
       <div key={Math.random()} className="fade-in"> 
         {/* If today is a holiday, present today's holiday*/} 
-        {todayHoliday === true
+        {todayHoliday
           ?
           <>
             <h1 className="mt-5 mb-5">YES😃! Today's holiday in {countryName} is:</h1>
@@ -52,6 +52,7 @@ function Holiday(props) {
             <h2 className="display-2">
               <HolidayName
                 code={countryCode}
+                holiday={todayHoliday}
               />
             </h2>
           </>

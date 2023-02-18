@@ -4,7 +4,9 @@ import axios from 'axios';
 
 function NextHoliday(props) {
     const [data, setData] = useState();
-    const [holidayToday, setHolidayToday] = useState();
+    const todayHoliday = props.holiday;
+
+    console.log(todayHoliday)
     const countryCode = props.code;
 
     /*
@@ -16,30 +18,18 @@ function NextHoliday(props) {
             axios.get(`https://date.nager.at/api/v3/nextPublicHolidays/${countryCode}`)
                 .then(function (response) {
                     setData(response.data)
-                    isTodayHoliday(response.data[0].date)
                 })
                 .catch(error => console.error(`Error: ${error}`));
         }
         getHolidays()
     }, [countryCode]);
 
-    function isTodayHoliday(date) {
-        //Compares date of today and holiday date to check whether today is a holiday
-        const today = new Date();
-            //Not using .toLocaleDateString() as it is specified by user timezone
-        if (today.toISOString().split('T')[0] === date) {
-            setHolidayToday(true);
-        } else {
-            setHolidayToday(false);
-        }
-    }
-
     return (
         <div>
             {/*If there is data in data (ie, not undefined)*/}
             {data &&
                 <> 
-                    {holidayToday 
+                    {todayHoliday !== false
                     ?
                     <> 
                         {/*If today is a holiday, display holiday name*/}
