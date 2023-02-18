@@ -14,7 +14,7 @@ function AvailableCountries() {
             setData(response.data);
           })
     }, []);
-
+    
     //Sort the countries alphabetically
     const alphabeticCountries = data.sort(function(a, b) {
         return a.name.localeCompare(b.name);
