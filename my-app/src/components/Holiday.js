@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import NextHoliday from './NextHoliday';
+import HolidayName from './HolidayName';
 import axios from 'axios';
 
 function Holiday(props) {
@@ -41,7 +41,7 @@ function Holiday(props) {
           ?
           <>
             <h1 className="mt-5 mb-5">YES😃! Today's holiday in {countryName} is:</h1>
-            <NextHoliday
+            <HolidayName
             code={countryCode}
             />
             <h2 className="mt-5 mb-5">Celebrate 🎉!!!</h2>
@@ -50,7 +50,7 @@ function Holiday(props) {
           <> {/*If today is not a holiday, present upcoming holiday*/}
             <h2 className="mt-5 mb-4">NOPE😢! Next holiday in {countryName} is:</h2>
             <h2 className="display-2">
-              <NextHoliday
+              <HolidayName
                 code={countryCode}
               />
             </h2>
