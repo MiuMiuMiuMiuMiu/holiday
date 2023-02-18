@@ -24,8 +24,9 @@ function NextHoliday(props) {
     }, [countryCode]);
 
     function isTodayHoliday(date) {
-        //Compares date of today and holiday date to check whether today is a holiday.
+        //Compares date of today and holiday date to check whether today is a holiday
         const today = new Date();
+            //Not using .toLocaleDateString() as it is specified by user timezone
         if (today.toISOString().split('T')[0] === date) {
             setHolidayToday(true);
         } else {

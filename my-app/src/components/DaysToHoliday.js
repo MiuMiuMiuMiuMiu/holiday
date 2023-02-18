@@ -10,16 +10,16 @@ function DaysToHoliday(props) {
 
     //Date of today
     const today = new Date();
-    //Date of upcoming holiday
+    //Date of upcoming holiday in milliseconds
     const upcomingHoliday = Date.parse(nextHolidayDate);
 
-    //Do smth
+    //Subtract milliseconds of upcoming holiday with today
     const differenceInTime = Math.abs(upcomingHoliday - Date.parse(today.toLocaleDateString()));
-    //Do smth
+    //Difference in days by dividing both dates by no. of milliseconds in a day
     const DifferenceInDays = Math.ceil(differenceInTime / (1000 * 60 * 60 * 24));
 
     return (
-        <div> {/* If today is not a holiday (ie 0), display amount of days to next holiday */}
+        <div>
             <h2 className="display-4">
                 {DifferenceInDays} Days
             </h2>
