@@ -49,7 +49,7 @@ function NextHoliday(props) {
                     </>
                     :
                     <> 
-                        {/*If today is NOT a holiday, display holiday name and amount of days til upcoming holiday*/}
+                        {/*If today is NOT a holiday, display next holiday name and amount of days til upcoming holiday*/}
                         <h2 className="display-4">
                             {data[0].name}
                         </h2>

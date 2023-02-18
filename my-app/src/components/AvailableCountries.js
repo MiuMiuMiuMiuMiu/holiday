@@ -15,10 +15,10 @@ function AvailableCountries() {
           })
     }, []);
 
-    //Sort the country alphabetically
+    //Sort the countries alphabetically
     const alphabeticCountries = data.sort(function(a, b) {
         return a.name.localeCompare(b.name);
-     });
+    });
 
     //Map the countries
     const countries = alphabeticCountries.map((country, index) =>

@@ -19,11 +19,16 @@ function CountryOptions() {
           })
     }, []);
 
+    //Sort countries alphabetically
+    const alphabeticCountries = data.sort(function(a, b) {
+        return a.name.localeCompare(b.name);
+    });
+
     /*
     Map a list of options with country data
     Index + 1 because there is an extra option not mapped here.
     */
-    const options = data.map((country, index) =>
+    const options = alphabeticCountries.map((country, index) =>
         <option value={index+1} id={country.countryCode} key={country.name.toString()}>
             {country.name}
         </option>
