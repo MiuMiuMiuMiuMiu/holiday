@@ -5,8 +5,8 @@ import axios from 'axios';
 function Holiday(props) {
 
   const [todayHoliday, setTodayHoliday] = useState();
-  let countryCode = props.code;
-  let countryName = props.name;
+  const countryCode = props.code;
+  const countryName = props.name;
 
   /* 
   Checks if today is a holiday.

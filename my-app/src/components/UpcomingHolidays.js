@@ -45,10 +45,6 @@ function UpcomingHolidays() {
                 </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
-
-
-            
-            
         </div>
     )
 }

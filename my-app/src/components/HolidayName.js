@@ -5,8 +5,6 @@ import axios from 'axios';
 function NextHoliday(props) {
     const [data, setData] = useState();
     const todayHoliday = props.holiday;
-
-    console.log(todayHoliday)
     const countryCode = props.code;
 
     /*
