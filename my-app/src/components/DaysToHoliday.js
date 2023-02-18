@@ -3,10 +3,10 @@
   Returns the number of days to a holiday
 */
 
-function DaysToHoliday(date) {
+function DaysToHoliday(props) {
 
     //Input date
-    const nextHolidayDate = date.date;
+    const nextHolidayDate = props.date;
 
     //Date of today
     const today = new Date();

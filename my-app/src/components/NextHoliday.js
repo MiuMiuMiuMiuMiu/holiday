@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import DaysToHoliday from './DaysToHoliday';
 import axios from 'axios';
 
-function NextHoliday(code) {
+function NextHoliday(props) {
     const [data, setData] = useState();
 
-    const countryCode = code.code;
+    const countryCode = props.code;
 
     /*
     Get upcoming holidays in the next 365 days
