@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
@@ -21,9 +22,13 @@ function AvailableCountries() {
     });
 
     //Map the countries
+    //If country is clicked, send to country page with country name and country code
     const countries = alphabeticCountries.map((country, index) =>
         <Col className="mb-3" key={index}>
-            {country.name}
+            <Link to={`/country/${country.countryCode}`} state={{ code: country.countryCode, name: country.name }}>
+                {country.name}
+            </Link>
+            
         </Col>
     );
 
