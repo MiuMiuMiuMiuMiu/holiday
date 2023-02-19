@@ -9,6 +9,7 @@ function AvailableCountries() {
 
     const [data, setData] = useState([]);
 
+    //Get available countries of API
     useEffect(() => {
         axios.get('https://date.nager.at/api/v3/availableCountries')
           .then(function (response) {

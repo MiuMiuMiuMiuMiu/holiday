@@ -6,7 +6,6 @@ function Country() {
 
     //Country name and country code in state
     let { state } = useLocation();
-    
 
     return (
         <Container className="my-5">
