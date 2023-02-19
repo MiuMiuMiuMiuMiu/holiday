@@ -18,7 +18,7 @@ function UpcomingHolidays() {
     }, []);
 
     return (
-        <div>
+        <div className="mb-5">
             {data && 
             <>
                 <Accordion defaultActiveKey="0">

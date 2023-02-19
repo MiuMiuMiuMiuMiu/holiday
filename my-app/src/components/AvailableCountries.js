@@ -28,7 +28,7 @@ function AvailableCountries() {
     );
 
     return (
-        <div> 
+        <div className="mb-5"> 
             <Accordion defaultActiveKey="0">
                 <Accordion.Item eventKey="0">
                 <Accordion.Header>
