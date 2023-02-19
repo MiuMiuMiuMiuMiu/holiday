@@ -8,6 +8,8 @@ function UpcomingHolidays() {
 
     const [data, setData] = useState([]);
 
+    //API returns upcoming holidays for the next 7 days (date, name (of holiday), localName (of holiday) and countryCode)
+    //Does NOT return country name. Thus have to send it to another component to "translate" the code to country name
     useEffect(() => {
         axios.get('https://date.nager.at/api/v3/NextPublicHolidaysWorldwide')
             .then(function (response) {
@@ -34,6 +36,7 @@ function UpcomingHolidays() {
                             </tr>
                         </thead>
                         <tbody>
+                            {/*Send data to component to display & convert country code to country name */}
                         <ConvertCodeToCountry
                             comingHolidays={data}
                             />
