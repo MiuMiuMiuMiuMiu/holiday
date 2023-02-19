@@ -18,19 +18,29 @@ function CountryInfo(props) {
 
     console.log(data);
 
+    const tableItems = data.map((country, index) => {
+        return (
+            <tr key={index}>
+                <td>{country.date}</td>
+                <td>{country.name}</td>
+                <td>{country.localName}</td>
+            </tr>
+        )
+    });
+
     return (
-        <div className="mt-5 text-center">
-            <h1>Public holidays in {state.name} in 2023</h1>
-            <Table size="sm">
+        <div className="mt-5">
+            <h1 className="text-center">Public holidays in {state.name} in 2023</h1>
+            <Table className="my-5">
                 <thead>
                     <tr>
-                        <th>Date</th>
+                        <th className="col-4 col-md-2 col-lg-2">Date</th>
                         <th>Name</th>
                         <th>Local name</th>
                     </tr>
                 </thead>
                 <tbody>
-
+                    {tableItems}
                 </tbody>
             </Table>
         </div>
