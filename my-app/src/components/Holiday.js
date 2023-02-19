@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import HolidayName from './HolidayName';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 function Holiday(props) {
 
@@ -40,7 +41,7 @@ function Holiday(props) {
         {todayHoliday
           ?
           <>
-            <h1 className="mt-5 mb-5">YES😃! Today's holiday in {countryName} is:</h1>
+            <h1 className="mt-5 mb-5">YES😃! Today's holiday in <Link>{countryName}</Link> is:</h1>
             <HolidayName
             code={countryCode}
             />
@@ -48,7 +49,7 @@ function Holiday(props) {
           </> 
           : 
           <> {/*If today is not a holiday, present upcoming holiday*/}
-            <h2 className="mt-5 mb-4">NOPE😢! Next holiday in {countryName} is:</h2>
+            <h2 className="mt-5 mb-4">NOPE😢! Next holiday in <Link className="link-black" to={`/country/${countryCode}`} state={{ code: countryCode, name: countryName }}>{countryName}</Link> is:</h2>
             <h2 className="display-2">
               <HolidayName
                 code={countryCode}

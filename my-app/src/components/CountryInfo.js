@@ -35,8 +35,6 @@ function CountryInfo(props) {
         )
     });
 
-    console.log(year)
-
     return (
         <div>
             <h1 className="mb-3">Public holidays in {state.name}</h1>

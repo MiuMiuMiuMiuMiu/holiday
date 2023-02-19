@@ -25,4 +25,14 @@
         left: 0;
         opacity: 1;
     }
-  }
+}
+
+/*Link styling*/
+
+.link-black {
+    color: black;
+}
+
+.link-black:hover {
+    color: black;
+}
