@@ -16,7 +16,6 @@ function Overview() {
                     <AvailableCountries/>
                 </Col>
             </Row>
-            
         </Container>
     )
 }
