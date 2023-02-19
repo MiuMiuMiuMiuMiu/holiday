@@ -1,5 +1,5 @@
 import Home from "./pages/home";
-import Country from "./pages/country";
+import Overview from "./pages/overview";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
@@ -30,7 +30,8 @@ function App() {
       </ThemeProvider>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/country" element={<Country />} />
+        <Route path="/country" element={<Overview />} />
+        <Route path="/country/:country" element={<Overview />} />
       </Routes>
     </BrowserRouter>
   );
