@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function ConvertCodeToCountry(props) {
     const [data, setData] = useState([]);
-    const [countryCodes, setCountryCodes] = useState([]);
+    const [countryName, setCountryName] = useState([]);
     const upcomingHolidays = props.comingHolidays;
 
     useEffect(() => {
@@ -13,30 +13,28 @@ function ConvertCodeToCountry(props) {
           })
     }, []);
 
-    //Put upcoming holiday country codes in list
-    useEffect(()=>{
-        const iterator = upcomingHolidays.values();
-        //Reset the list as useEffect may be rendered more than once
-        setCountryCodes([]);
-        //Save country codes of upcoming holidays in a list
-        for (const value of iterator) {
-            setCountryCodes(countryCodes => [...countryCodes, value.countryCode]);
-        }
-        
-    }, [upcomingHolidays])
-
     //Translate country codes to country name
-    console.log(data)
+    useEffect(()=>{
+        //Reset the list as useEffect may be rendered more than once
+        setCountryName([]);
+        for (let i in upcomingHolidays) {
+            for (let x in data) {
+                //Save country names in a list
+                if(upcomingHolidays[i].countryCode === data[x].countryCode)
+                setCountryName(countryName => [...countryName, data[x].name]);
+            }
+        }
+    }, [upcomingHolidays, data])
 
-    const tableItems = countryCodes.map((country, index, data) => {
+    const tableItems = upcomingHolidays.map((country, index) => {
         return (
-            <td>Test</td>
+            <tr key={index}>
+                <td>{country.date}</td>
+                <td>{country.name}</td>
+                <td>{countryName[index]}</td>
+            </tr>
         )
     });
-    
-    /*console.log(data)
-    console.log(upcomingHolidays)*/
-
     return tableItems;
 }
 

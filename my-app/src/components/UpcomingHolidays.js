@@ -19,7 +19,6 @@ function UpcomingHolidays() {
         <div>
             {data && 
             <>
-                
                 <Accordion defaultActiveKey="0">
                     <Accordion.Item eventKey="0">
                     <Accordion.Header>
@@ -29,7 +28,7 @@ function UpcomingHolidays() {
                     <Table hover>
                         <thead>
                             <tr>
-                                <th className="col-2">Date</th>
+                                <th className="col-3 col-md-4 col-lg-3">Date</th>
                                 <th>Name</th>
                                 <th>Country</th>
                             </tr>
