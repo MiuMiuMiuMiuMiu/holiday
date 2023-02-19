@@ -1,7 +1,9 @@
 import React, {useState, useEffect } from 'react';
 import { useLocation } from "react-router-dom";
 import axios from 'axios';
-import Table from 'react-bootstrap/Table';
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 function CountryInfo(props) {
 
@@ -18,31 +20,26 @@ function CountryInfo(props) {
 
     console.log(data);
 
-    const tableItems = data.map((country, index) => {
+    const cards = data.map((country, index) => {
         return (
-            <tr key={index}>
-                <td>{country.date}</td>
-                <td>{country.name}</td>
-                <td>{country.localName}</td>
-            </tr>
+            <Col>
+                <Card style={{ height: '12rem' }}>
+                    <Card.Header>{country.date}</Card.Header>
+                    <Card.Body>
+                        <Card.Title>{country.name}</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">{country.localName}</Card.Subtitle>
+                    </Card.Body>
+                </Card>
+            </Col>
         )
     });
 
     return (
-        <div className="mt-5">
-            <h1 className="text-center">Public holidays in {state.name} in 2023</h1>
-            <Table className="my-5">
-                <thead>
-                    <tr>
-                        <th className="col-4 col-md-2 col-lg-2">Date</th>
-                        <th>Name</th>
-                        <th>Local name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {tableItems}
-                </tbody>
-            </Table>
+        <div>
+            <h1 className="mb-5 text-center">Public holidays in {state.name} in 2023</h1>
+            <Row  className='row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4'>
+                {cards}
+            </Row>      
         </div>
         
     )
