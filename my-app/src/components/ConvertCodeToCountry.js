@@ -1,4 +1,5 @@
 import {useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 function ConvertCodeToCountry(props) {
@@ -33,7 +34,11 @@ function ConvertCodeToCountry(props) {
             <tr key={index}>
                 <td>{country.date}</td>
                 <td>{country.name}</td>
-                <td>{countryName[index]}</td>
+                <td>
+                    <Link className="link-black" to={`/country/${country.countryCode}`} state={{ code: country.countryCode, name: country.name }}>
+                        {countryName[index]}
+                    </Link>
+                </td>
             </tr>
         )
     });
