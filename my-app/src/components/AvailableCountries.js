@@ -38,7 +38,7 @@ function AvailableCountries() {
             <Accordion defaultActiveKey="0">
                 <Accordion.Item eventKey="0">
                 <Accordion.Header>
-                    <h3>Available countries</h3>
+                    <h3 className="title-color-black">Available countries</h3>
                 </Accordion.Header>
                 <Accordion.Body>
                     <Row xs={2} sm={2} md={2} lg={2}>
