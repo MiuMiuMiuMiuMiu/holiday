@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
-function CountryInfo(props) {
+function CountryYearInfo(props) {
 
     //Country name and country code in state
     let { state } = useLocation();
@@ -52,4 +52,4 @@ function CountryInfo(props) {
     )
 }
 
-export default CountryInfo;
+export default CountryYearInfo;

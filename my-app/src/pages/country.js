@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import CountryInfo from "../components/CountryInfo";
+import CountryYearInfo from "../components/CountryYearInfo";
 import Container from 'react-bootstrap/Container';
 
 function Country() {
@@ -9,7 +9,7 @@ function Country() {
 
     return (
         <Container className="my-5">
-            <CountryInfo 
+            <CountryYearInfo 
                 code={state.code}
                 name={state.name}
             />

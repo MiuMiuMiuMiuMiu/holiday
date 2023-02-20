@@ -41,7 +41,7 @@ function Holiday(props) {
         {todayHoliday
           ?
           <>
-            <h1 className="mt-5 mb-5">YES😃! Today's holiday in <Link>{countryName}</Link> is:</h1>
+            <h1 className="mt-5 mb-5">YES😃! Today's holiday in <Link className="link-black" to={`/country/${countryCode}`} state={{ code: countryCode, name: countryName }}>{countryName}</Link> is:</h1>
             <HolidayName
             code={countryCode}
             />
