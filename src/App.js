@@ -7,11 +7,11 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import ThemeProvider from 'react-bootstrap/ThemeProvider'
-import { Link, BrowserRouter, Routes, Route } from "react-router-dom";
+import { Link, HashRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ThemeProvider
         breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
         minBreakpoint="xxs">
@@ -34,7 +34,7 @@ function App() {
         <Route path="/country" element={<Overview />} />
         <Route path="/country/:country" element={<Country />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
