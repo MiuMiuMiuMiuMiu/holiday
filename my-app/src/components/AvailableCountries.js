@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
+import Button from 'react-bootstrap/Button';
 
 function AvailableCountries() {
 
@@ -27,7 +28,10 @@ function AvailableCountries() {
     const countries = alphabeticCountries.map((country, index) =>
         <Col className="mb-3" key={index}>
             <Link to={`/country/${country.countryCode}`} state={{ code: country.countryCode, name: country.name }}>
-                {country.name}
+                <Button variant="light">
+                    {country.name}
+                </Button>
+                
             </Link>
             
         </Col>
