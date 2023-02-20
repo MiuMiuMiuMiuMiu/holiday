@@ -7,13 +7,17 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
+//Display all holidays that occur during a year of a country
 function CountryYearInfo(props) {
 
     //Country name and country code in state
     let { state } = useLocation();
+    //Save API data
     const [data, setData] = useState([]);
+    //Save current year
     const [year, setYear] = useState(new Date().getFullYear())
 
+    /*Get holidays of a country in a specified year*/
     useEffect(() => {
         axios.get(`https://date.nager.at/api/v3/PublicHolidays/${year}/${state.code}`)
           .then(function (response) {
@@ -21,6 +25,7 @@ function CountryYearInfo(props) {
           })
     }, [state.code, year]);
 
+    //Map out all the countries as cols, with cards within them
     const cards = data.map((country, index) => {
         return (
             <Col key={index}>
@@ -38,12 +43,12 @@ function CountryYearInfo(props) {
     return (
         <div>
             <h1 className="mb-3">Public holidays in {state.name}</h1>
+            {/*When a button is pressed deduct or add 1 year to current year, set new year as current year*/}
             <ButtonGroup className="mb-5" aria-label="Basic example">
-                <Button onClick={() => setYear(year-1)} variant="secondary">&lt;</Button>
+                <Button onClick={() => setYear(year-1)} variant="secondary">&lt;</Button> {/*&lt; = < */}
                 <Button variant="dark">{year}</Button>
-                <Button onClick={() => setYear(year+1)} variant="secondary">&gt;</Button>
+                <Button onClick={() => setYear(year+1)} variant="secondary">&gt;</Button> {/*&gt; = > */}
             </ButtonGroup>
-            
             <Row  className='row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3'>
                 {cards}
             </Row>      

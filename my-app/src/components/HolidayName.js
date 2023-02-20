@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import DaysToHoliday from './DaysToHoliday';
 import axios from 'axios';
 
+//If it is a holiday, display which holiday
+//If not a holiday, show amount of days til upcoming holiday
 function NextHoliday(props) {
     const [data, setData] = useState();
     const todayHoliday = props.holiday;

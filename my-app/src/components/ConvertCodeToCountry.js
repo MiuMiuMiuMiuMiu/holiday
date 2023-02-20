@@ -2,7 +2,9 @@ import {useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
+//Display upcoming holidays in a table and converts country code to country name 
 function ConvertCodeToCountry(props) {
+    //Api data
     const [data, setData] = useState([]);
     const [countryName, setCountryName] = useState([]);
     //Data sent in from UpcomingHolidays.js
@@ -35,6 +37,7 @@ function ConvertCodeToCountry(props) {
                 <td>{country.date}</td>
                 <td>{country.name}</td>
                 <td>
+                    {/*When country is clicked, take user to country info page */}
                     <Link className="link-black" to={`/country/${country.countryCode}`} state={{ code: country.countryCode, name: country.name }}>
                         {countryName[index]}
                     </Link>

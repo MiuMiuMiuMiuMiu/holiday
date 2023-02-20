@@ -4,7 +4,6 @@
 */
 
 function DaysToHoliday(props) {
-
     //Input date
     const nextHolidayDate = props.date;
 

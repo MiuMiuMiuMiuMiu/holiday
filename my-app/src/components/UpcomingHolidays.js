@@ -4,6 +4,7 @@ import Table from 'react-bootstrap/Table';
 import Accordion from 'react-bootstrap/Accordion';
 import ConvertCodeToCountry from './ConvertCodeToCountry';
 
+//Display upcoming holidays for the next 7 days worldwide
 function UpcomingHolidays() {
 
     const [data, setData] = useState([]);
@@ -36,7 +37,7 @@ function UpcomingHolidays() {
                             </tr>
                         </thead>
                         <tbody>
-                            {/*Send data to component to display & convert country code to country name */}
+                        {/*Send data to component to display & convert country code to country name */}
                         <ConvertCodeToCountry
                             comingHolidays={data}
                             />

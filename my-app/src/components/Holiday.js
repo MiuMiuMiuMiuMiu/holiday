@@ -3,6 +3,7 @@ import HolidayName from './HolidayName';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
+//Display holiday based on if today is a holiday or not
 function Holiday(props) {
 
   const [todayHoliday, setTodayHoliday] = useState();
@@ -49,6 +50,7 @@ function Holiday(props) {
           </> 
           : 
           <> {/*If today is not a holiday, present upcoming holiday*/}
+            {/*When country is clicked, take user to country info page */}
             <h2 className="mt-5 mb-4">NOPE😢! Next holiday in <Link className="link-black" to={`/country/${countryCode}`} state={{ code: countryCode, name: countryName }}>{countryName}</Link> is:</h2>
             <h2 className="display-2">
               <HolidayName
