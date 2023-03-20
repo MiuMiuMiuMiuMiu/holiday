@@ -38,6 +38,6 @@ You should now be able to see the website running :)
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## Acknowledgments
-* Many thanks to the documents of each libarary I used
+* Many thanks to the documentation of each libarary I used
 * Thank you stackoverflow
 
